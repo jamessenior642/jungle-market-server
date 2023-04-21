@@ -2,12 +2,11 @@ import mongoose from 'mongoose';
 
 const schema = mongoose.Schema(
     {
-        _id:String,
         userName: String,
         role: {
             type:String,
             enum: ['Buyer', 'Seller'],
-            default: 'User'
+            default: 'Buyer'
         },
         password: String,
         email: String,
