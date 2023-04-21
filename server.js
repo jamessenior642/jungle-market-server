@@ -8,7 +8,7 @@ import authController from "./controllers/auth-controller.js";
 // import commentController from "./controllers/comment-controller.js";
 
 mongoose.connect(
-  "mongodb+srv://admin:password123!@webdev.rjvr8oy.mongodb.net/?retryWrites=true&w=majority"
+  "mongodb+srv://admin:123@cluster0.4qmfppy.mongodb.net/?retryWrites=true&w=majority"
 );
 
 const app = express();

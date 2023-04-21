@@ -33,17 +33,18 @@ const login = async (request, response) => {
     response.json(user);
 }
 
-const profile = async (request, response) => {
-    const user = request.session.profile;
-    if (!user) {
-        response.status(400).json({ message: 'Not logged in' });
-        return;
+const profile = (request, response) => {
+    const currentUser = request.session.user;
+    console.log(request.session)
+    if (currentUser) {
+        response.json(currentUser);
+    } else {
+        response.sendStatus(503);
     }
-    response.json(user);
-}
+  };
 
 export default (app) => {
     app.post('/api/signup', signup);
     app.post('/api/login', login);
-    app.get('/api/profile', profile);
+    app.post('/api/profile', profile);
 }
