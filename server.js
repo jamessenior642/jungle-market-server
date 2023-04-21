@@ -8,7 +8,7 @@ import session from "express-session";
 // import commentController from "./controllers/comment-controller.js";
 
 mongoose.connect(
-  "mongodb+srv://jonshih:123aabbcc@cluster0.6gab2.mongodb.net/final-proj?retryWrites=true&w=majority"
+  "mongodb+srv://admin:password123!@webdev.rjvr8oy.mongodb.net/?retryWrites=true&w=majority"
 );
 
 const app = express();
