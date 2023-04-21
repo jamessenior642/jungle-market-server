@@ -4,10 +4,7 @@ import userDao from "../users/user-dao.js";
 const signup = async (request, response) => {
     const email = request.body.email;
     const userName = request.body.userName;
-    const password = request.body.password;
-    const role = request.body.role;
-
-
+    console.log(request.body);
     const checkEmail = await userDao.findByEmail(email);
 
     if (checkEmail) {
@@ -33,6 +30,11 @@ const login = async (request, response) => {
     response.json(user);
 }
 
+const logout = (request, response) => {
+    request.session.destroy();
+    response.sendStatus(200);
+}
+
 const profile = (request, response) => {
     const currentUser = request.session.user;
     console.log(request.session)
@@ -47,4 +49,5 @@ export default (app) => {
     app.post('/api/signup', signup);
     app.post('/api/login', login);
     app.post('/api/profile', profile);
+    app.post('/api/logout', logout);
 }

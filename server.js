@@ -3,7 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import session from "express-session";
 import authController from "./controllers/auth-controller.js";
-// import userController from "./controllers/user-controller.js";
+import userController from "./controllers/user-controller.js";
 // import memeController from "./controllers/meme-controller.js";
 // import commentController from "./controllers/comment-controller.js";
 
@@ -26,9 +26,8 @@ app.use(
   })
 );
 app.use(express.json());
-
 authController(app);
-// userController(app);
+userController(app);
 // memeController(app);
 // commentController(app);
 
