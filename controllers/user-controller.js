@@ -17,6 +17,7 @@ const findAllUsers = async (request, response) => {
 };
 
 const updateUser = async (request, response) => {
+    console.log(request.body);
     const id = request.params.id;
     const user = request.body;
     const updatedUser = await userDao.updateUser(id, user);
