@@ -8,7 +8,7 @@ import userController from "./controllers/user-controller.js";
 // import commentController from "./controllers/comment-controller.js";
 
 mongoose.connect(
-  "mongodb+srv://admin:123@cluster0.4qmfppy.mongodb.net/?retryWrites=true&w=majority"
+  "mongodb+srv://admin:123@cluster0.4qmfppy.mongodb.net/webdev?retryWrites=true&w=majority"
 );
 
 const app = express();

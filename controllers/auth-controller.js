@@ -15,7 +15,7 @@ const signup = async (request, response) => {
     const user = await userDao.createUser(request.body);
     request.session.user = user;
     response.json(user);
-    }
+}
 
 const login = async (request, response) => {
     const { email, password } = request.body;
@@ -43,7 +43,7 @@ const profile = (request, response) => {
     } else {
         response.sendStatus(503);
     }
-  };
+};
 
 export default (app) => {
     app.post('/api/signup', signup);
