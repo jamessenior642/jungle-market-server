@@ -9,20 +9,12 @@ const schema = mongoose.Schema(
         rating: Number,
         stock: Number,
         brand: String,
-        // categories: [],
         thumbnail: String,
-        images: [{
-            type: String
-        }],
+        image: String,
         seller: String,
-        status: {
-            type: String,
-            enum: ['Approved', 'Rejected', 'Pending'],
-            default: 'user'
-        },
     },
     {
-        collection: 'products_info'
+        collection: 'products'
     }
 );
 
