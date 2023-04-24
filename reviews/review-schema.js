@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 const reviewSchema = mongoose.Schema(
   {
     rating: Number,
+    text: String,
     productID: String,
     userName: String,
     reviewer: {
