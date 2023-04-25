@@ -1,6 +1,7 @@
 import reviewModel from "./review-model.js";
 
-const postReview = async (productId, review) => {
+const postReview = async (userId, productId, review) => {
+  review.reviewer = userId;
   review.productID = productId;
   const actualReview = await reviewModel.create(review);
   return actualReview;

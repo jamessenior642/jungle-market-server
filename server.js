@@ -29,8 +29,6 @@ app.use(express.json());
 authController(app);
 userController(app);
 reviewController(app);
-// memeController(app);
-// commentController(app);
 
 app.get("/", (request, response) => {
   response.send("Welcome to WebDev");
