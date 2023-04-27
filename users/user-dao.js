@@ -5,11 +5,7 @@ const findAllUsers = async () => {
     };
 
 const findUserById = async (id) => {
-    return await userModel.findById(id);
-    };
-
-const findUserByUserName = async (userName) => {
-    return await userModel.findOne({userName: userName});
+    return await userModel.findById(id)
     };
 
 const createUser = async (user) => {
@@ -30,12 +26,12 @@ const findbyCredentials = async (email, password) => {
 
 const findByEmail = async (email) => {
     return await userModel.findOne({email: email});
+
 };
 
 export default {
     findAllUsers,
     findUserById,
-    findUserByUserName,
     findbyCredentials,
     findByEmail,
     createUser,

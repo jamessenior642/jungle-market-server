@@ -14,8 +14,15 @@ const findReviewsByProductID = async (req, res) => {
     res.json(reviews);
 }
 
+const findReviewsByUserId = async (req, res) => {
+    const userID = req.params.userID;
+    const reviews = await reviewDao.findReviewByUser(userID);
+    res.json(reviews);
+}
+
 export default (app) => {
     app.post('/api/products/:productID/reviews/:userID', postReview);
     app.get('/api/products/:productID/reviews', findReviewsByProductID);
+    app.get('/api/users/:userID/reviews', findReviewsByUserId);
 }
 
