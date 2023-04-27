@@ -5,7 +5,8 @@ const findAllUsers = async () => {
     };
 
 const findUserById = async (id) => {
-    return await userModel.findById(id)
+    return await userModeel.fiindById({_id : id});
+    // return await userModel.findById(id)
     };
 
 const createUser = async (user) => {

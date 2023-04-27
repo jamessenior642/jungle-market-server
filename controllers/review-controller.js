@@ -20,9 +20,16 @@ const findReviewsByUserId = async (req, res) => {
     res.json(reviews);
 }
 
+const deleteReview = async (req, res) => {
+    const reviewId = req.params.reviewId;
+    await reviewDao.deleteReview(reviewId);
+    res.sendStatus(200);
+}
+
 export default (app) => {
     app.post('/api/products/:productID/reviews/:userID', postReview);
     app.get('/api/products/:productID/reviews', findReviewsByProductID);
     app.get('/api/users/:userID/reviews', findReviewsByUserId);
+    app.delete('/api/reviews/:reviewId', deleteReview);
 }
 

@@ -18,8 +18,15 @@ const findReviewByUser = (userID) => {
 	console.log(reviews)
 	return reviews;
 }
+
+const deleteReview = (reviewId) => {
+	const status = reviewModel.deleteOne({_id: reviewId});
+	return status;
+
+}
 export default {
 	postReview,
 	findReviewByProductID,
-	findReviewByUser
+	findReviewByUser,
+	deleteReview
 };
