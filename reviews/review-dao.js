@@ -14,7 +14,7 @@ const findReviewByProductID = (productID) => {
 };
 
 const findReviewByUser = (userID) => {
-	const reviews = reviewModel.find({userID: userID.toString()});
+	const reviews = reviewModel.find({userID: userID});
 	console.log(reviews)
 	return reviews;
 }

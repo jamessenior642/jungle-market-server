@@ -13,7 +13,6 @@ const findUserbyEmail = async (request, response) => {
 
 const findUserByID = async (request, response) => {
     const username = request.params.id;
-    console.log(username)
     const user = await userDao.findUserById(username);
     if (user) {
         response.json(user);
