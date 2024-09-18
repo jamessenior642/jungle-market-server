@@ -7,7 +7,7 @@ import userController from "./controllers/user-controller.js";
 import reviewController from "./controllers/review-controller.js";
 // import memeController from "./controllers/meme-controller.js";
 // import commentController from "./controllers/comment-controller.js";
-const CONNECTION_STRING = "mongodb+srv://admin:123@cluster0.4qmfppy.mongodb.net/webdev?retryWrites=true&w=majority";
+const CONNECTION_STRING = "mongodb+srv://cluster0.sdb26.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose.connect(CONNECTION_STRING)
 
