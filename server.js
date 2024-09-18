@@ -19,9 +19,13 @@ app.use(
   })
 );
 
+
+
 app.use(
   session({
     secret: "SECRETO",
+    resave: false, // Don't save session if unmodified
+    saveUninitialized: true, // Save uninitialized sessions
     cookie: { secure: false },
   })
 );
