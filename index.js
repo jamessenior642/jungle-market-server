@@ -7,18 +7,30 @@ import userController from "./controllers/user-controller.js";
 import reviewController from "./controllers/review-controller.js";
 // import memeController from "./controllers/meme-controller.js";
 // import commentController from "./controllers/comment-controller.js";
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb+srv://james:senior@cluster0.sdb26.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-mongoose.connect(CONNECTION_STRING)
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb+srv://james:senior@cluster0.sdb26.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+mongoose.connect(CONNECTION_STRING);
 
 const app = express();
-app.use(
-  cors({
-    credentials: true,
-    origin: "http://localhost:3000",
-  })
-);
 
+// CORS configuration
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://jungle-market.netlify.app'
+];
+
+app.use(cors({
+  credentials: true,
+  origin: (origin, callback) => {
+    // Allow requests with no origin, like mobile apps or Postman
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+}));
 
 app.use(
   session({
@@ -28,6 +40,7 @@ app.use(
     cookie: { secure: false },
   })
 );
+
 app.use(express.json());
 authController(app);
 userController(app);
