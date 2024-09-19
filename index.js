@@ -13,11 +13,11 @@ mongoose.connect(CONNECTION_STRING);
 
 const app = express();
 
-// CORS configuration
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://jungle-market.netlify.app'
-];
+// // CORS configuration
+// const allowedOrigins = [
+//   'http://localhost:3000',
+//   'https://jungle-market.netlify.app'
+// ];
 
 app.use(cors({
   credentials: true,
